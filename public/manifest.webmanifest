@@ -1,0 +1,22 @@
+{
+  "short_name": "ことば帳",
+  "name": "ことば帳 - 言えそうで言えない英単語",
+  "description": "日常会話で「言えそうで言えない」英単語を集めた学習アプリ",
+  "icons": [
+    {
+      "src": "/pwa-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/pwa-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "display": "standalone",
+  "orientation": "portrait"
+}

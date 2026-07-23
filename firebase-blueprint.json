@@ -1,0 +1,20 @@
+{
+  "entities": {
+    "User": {
+      "path": "users/{userId}",
+      "fields": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "avatar": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "UserWordState": {
+      "path": "users/{userId}/wordStates/{wordId}",
+      "fields": {
+        "status": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  }
+}
