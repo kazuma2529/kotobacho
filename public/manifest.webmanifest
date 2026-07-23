@@ -4,12 +4,12 @@
   "description": "日常会話で「言えそうで言えない」英単語を集めた学習アプリ",
   "icons": [
     {
-      "src": "/pwa-192.png",
+      "src": "/icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/pwa-512.png",
+      "src": "/icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
