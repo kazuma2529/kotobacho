@@ -53,11 +53,16 @@ export const WORDS_PART_N: WordItem[] = [
 
 `id` は `${genreId}-${number}` 形式です。既存 ID を変えるとユーザー進捗がずれます。
 
-## Vercel へのデプロイ
+## デプロイ
 
-1. このリポジトリを Vercel にインポート
-2. Framework Preset: Vite、Build Command: `npm run build`、Output: `dist`
-3. Firebase Console → Authentication → Settings → Authorized domains に Vercel のドメインを追加
+本番 URL: https://kotobacho.vercel.app
+
+GitHub (`main`) への push で Vercel が自動デプロイします。
+
+Google ログインを使う場合は、Firebase Console → Authentication → Settings → Authorized domains に次を追加してください。
+
+- `kotobacho.vercel.app`
+- `kotobacho-kyamada760-gmailcoms-projects.vercel.app`
 
 ## 技術スタック
 
