@@ -81,7 +81,7 @@ const GENRE_12_DATA: [string, string][] = [
   ['漏斗', 'funnel'],
 ];
 
-// Genre 13: 家具 (34 words)
+// Genre 13: 家具 (35 words)
 const GENRE_13_DATA: [string, string][] = [
   ['机', 'desk'],
   ['テーブル', 'table'],
@@ -113,6 +113,7 @@ const GENRE_13_DATA: [string, string][] = [
   ['引き出し', 'drawer'],
   ['収納棚', 'storage rack'],
   ['靴箱', 'shoe cabinet'],
+  ['金庫', 'safe'],
   ['傘立て', 'umbrella stand'],
   ['ハンガーラック', 'clothes rack'],
   ['間仕切り', 'room divider'],

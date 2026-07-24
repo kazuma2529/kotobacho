@@ -84,14 +84,14 @@ export const WordCard: React.FC<WordCardProps> = ({
 
           {/* Word text */}
           <div className="min-w-0 flex-1">
-            <div className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug font-sans">
+            <div className="text-sm sm:text-base font-bold text-slate-900 tracking-tight leading-snug font-sans break-words">
               {word.en}
             </div>
 
             {/* Japanese translation */}
             <div className="mt-0.5">
               {isJapaneseVisible ? (
-                <span className="text-xs font-semibold text-slate-600 bg-amber-50 text-amber-900 px-2 py-0.5 rounded-md inline-block animate-in fade-in duration-150">
+                <span className="text-xs font-semibold text-slate-600 bg-amber-50 text-amber-900 px-2 py-0.5 rounded-md inline-block max-w-full break-words animate-in fade-in duration-150">
                   {word.ja}
                 </span>
               ) : (

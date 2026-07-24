@@ -53,8 +53,10 @@ const RAW_GENRES: GenreDefinition[] = [
   { id: 40, name: '算数（計算・図形）', titleJa: '算数（計算・図形）', titleEn: 'Math, Shapes & Arithmetic', description: '計算式や図形・数学の基本表現', icon: '📐' },
   { id: 41, name: '公園器具', titleJa: '公園器具', titleEn: 'Park Equipment', description: 'ブランコや滑り台など公園の遊具・設備', icon: '🛝' },
   { id: 42, name: '英語授業用語', titleJa: '英語授業用語', titleEn: 'English Classroom & Grammar Terms', description: '品詞・文法・時制・発音・英語授業で使う用語', icon: '📖' },
+  { id: 43, name: '色・色彩', titleJa: '色・色彩', titleEn: 'Colors & Hues', description: '色の名前やニュアンスの表現', icon: '🎨' },
+  { id: 44, name: '形容詞から作られる名詞', titleJa: '形容詞から作られる名詞', titleEn: 'Adjective–noun word families', description: '形容詞から派生する抽象名詞・性質を表す名詞', icon: '🔤' },
+  { id: 45, name: 'エロ用語', titleJa: 'エロ用語', titleEn: 'Erotic & Sexual Vocabulary', description: '性に関する一般語・医学語・俗語・表現', icon: '💋' },
 ];
-
 export const GENRES: Genre[] = RAW_GENRES.map((g) => ({
   ...g,
   count: ALL_WORDS.filter((w) => w.genreId === g.id).length,
