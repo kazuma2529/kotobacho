@@ -20,13 +20,53 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').catch(err => {
-            console.log('Service worker registration failed:', err);
-          });
+      (function () {
+        if (!('serviceWorker' in navigator) || window.location.protocol !== 'https:') {
+          return;
+        }
+
+        // After a new SW claims the page, reload once so the fresh index.html loads.
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
         });
-      }
+
+        navigator.serviceWorker.addEventListener('message', function (event) {
+          if (event.data && event.data.type === 'KOTOBACHO_SW_ACTIVATED' && !refreshing) {
+            refreshing = true;
+            window.location.reload();
+          }
+        });
+
+        window.addEventListener('load', function () {
+          // Purge any legacy Cache Storage left by kotobacho-v1 cache-first SW.
+          if (window.caches && caches.keys) {
+            caches.keys().then(function (keys) {
+              return Promise.all(
+                keys
+                  .filter(function (key) {
+                    return key === 'kotobacho-v1' || key.indexOf('kotobacho-v2') === 0;
+                  })
+                  .map(function (key) {
+                    return caches.delete(key);
+                  })
+              );
+            }).catch(function () {});
+          }
+
+          navigator.serviceWorker
+            .register('/sw.js', { updateViaCache: 'none' })
+            .then(function (reg) {
+              // Check for SW updates on every load.
+              reg.update().catch(function () {});
+            })
+            .catch(function (err) {
+              console.log('Service worker registration failed:', err);
+            });
+        });
+      })();
     </script>
   </body>
 </html>
