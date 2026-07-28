@@ -1,12 +1,12 @@
 import { WordItem } from '../types';
 import { makeWordList } from './wordUtils';
 
-// Genre 31: 建物・住宅設備 (49 words)
+// Genre 31: 建物・住宅設備
 const GENRE_31_DATA: [string, string][] = [
   ['建物', 'building'],
   ['一戸建て', 'detached house'],
   ['集合住宅', 'apartment building'],
-  ['マンション', 'condominium'],
+  ['分譲マンションの一戸', 'condominium'],
   ['アパート', 'apartment'],
   ['玄関', 'entryway'],
   ['廊下', 'hallway'],
@@ -21,11 +21,11 @@ const GENRE_31_DATA: [string, string][] = [
   ['柱', 'pillar'],
   ['窓', 'window'],
   ['窓枠', 'window frame'],
-  ['網戸', 'screen door'],
+  ['網戸', 'window screen'],
   ['雨戸', 'storm shutter'],
   ['ドア', 'door'],
   ['ドアノブ', 'doorknob'],
-  ['鍵', 'lock'],
+  ['鍵', 'key'],
   ['ベランダ', 'balcony'],
   ['庭', 'yard'],
   ['門', 'gate'],
@@ -35,9 +35,9 @@ const GENRE_31_DATA: [string, string][] = [
   ['台所', 'kitchen'],
   ['居間', 'living room'],
   ['寝室', 'bedroom'],
-  ['浴室', 'bathroom'],
-  ['洗面所', 'washroom'],
-  ['トイレ', 'toilet'],
+  ['浴室・風呂場', 'bathroom'],
+  ['洗面所（洗面台のある場所）', 'sink area'],
+  ['便器', 'toilet'],
   ['押し入れ', 'closet'],
   ['屋根裏', 'attic'],
   ['地下室', 'basement'],
@@ -49,12 +49,20 @@ const GENRE_31_DATA: [string, string][] = [
   ['コンセント', 'electrical outlet'],
   ['ブレーカー', 'circuit breaker'],
   ['インターホン', 'intercom'],
-  ['火災報知器', 'smoke detector'],
+  ['煙感知器', 'smoke detector'],
   ['手すり', 'handrail'],
-  ['郵便受け', 'mail slot'],
+  ['郵便受け', 'mailbox'],
+  ['マンションの一戸（口語的）', 'condo'],
+  ['錠・錠前', 'lock'],
+  ['玄関のドア', 'front door'],
+  ['コンセント（主に英）', 'socket'],
+  ['蛇口（主に英）', 'tap'],
+  ['郵便受け口', 'mail slot'],
+  ['公共のトイレ（米）', 'restroom'],
+  ['火災警報器', 'fire alarm'],
 ];
 
-// Genre 32: 工具・作業道具 (46 words)
+// Genre 32: 工具・作業道具
 const GENRE_32_DATA: [string, string][] = [
   ['金づち', 'hammer'],
   ['木づち', 'mallet'],
@@ -68,7 +76,7 @@ const GENRE_32_DATA: [string, string][] = [
   ['マイナスドライバー', 'flathead screwdriver'],
   ['レンチ', 'wrench'],
   ['モンキーレンチ', 'adjustable wrench'],
-  ['スパナ', 'open-end wrench'],
+  ['スパナ（米語）', 'open-end wrench'],
   ['ペンチ', 'pliers'],
   ['ラジオペンチ', 'needle-nose pliers'],
   ['ニッパー', 'wire cutters'],
@@ -79,7 +87,7 @@ const GENRE_32_DATA: [string, string][] = [
   ['ドリル刃', 'drill bit'],
   ['カッターナイフ', 'utility knife'],
   ['のみ', 'chisel'],
-  ['かんな', 'plane'],
+  ['かんな', 'hand plane'],
   ['万力', 'vise'],
   ['クランプ', 'clamp'],
   ['巻き尺', 'tape measure'],
@@ -89,22 +97,27 @@ const GENRE_32_DATA: [string, string][] = [
   ['作業台', 'workbench'],
   ['工具箱', 'toolbox'],
   ['軍手', 'work gloves'],
-  ['保護眼鏡', 'safety goggles'],
+  ['保護眼鏡', 'safety glasses'],
   ['ヘルメット', 'hard hat'],
   ['懐中電灯', 'flashlight'],
   ['延長コード', 'extension cord'],
   ['接着剤', 'adhesive'],
-  ['潤滑油', 'lubricant'],
+  ['潤滑油', 'lubricating oil'],
   ['紙やすり', 'sandpaper'],
   ['ペンキ', 'paint'],
   ['はけ', 'paintbrush'],
   ['ローラー', 'paint roller'],
-  ['シャベル', 'shovel'],
-  ['スコップ', 'hand shovel'],
+  ['シャベル（大型）', 'shovel'],
+  ['スコップ（小型）', 'hand shovel'],
   ['熊手', 'rake'],
+  ['スパナ（主に英）', 'spanner'],
+  ['六角レンチ（商標由来の呼び方）', 'Allen key'],
+  ['六角レンチ（一般名）', 'hex key'],
+  ['保護ゴーグル', 'safety goggles'],
+  ['接着剤（口語的）', 'glue'],
 ];
 
-// Genre 33: スポーツ・運動用具 (46 words)
+// Genre 33: スポーツ・運動用具
 const GENRE_33_DATA: [string, string][] = [
   ['ボール', 'ball'],
   ['サッカーボール', 'soccer ball'],
@@ -144,7 +157,7 @@ const GENRE_33_DATA: [string, string][] = [
   ['ホイッスル', 'whistle'],
   ['スコアボード', 'scoreboard'],
   ['ユニフォーム', 'uniform'],
-  ['ゼッケン', 'number bib'],
+  ['ゼッケン（競技用）', 'race bib'],
   ['水泳帽', 'swim cap'],
   ['ゴーグル', 'goggles'],
   ['ビート板', 'kickboard'],
@@ -152,9 +165,13 @@ const GENRE_33_DATA: [string, string][] = [
   ['スキー板', 'skis'],
   ['スノーボード', 'snowboard'],
   ['スケート靴', 'ice skates'],
+  ['サッカー用スパイク（米）', 'soccer cleats'],
+  ['サッカー用スパイク（主に英）', 'football boots'],
+  ['テニスラケット（別つづり）', 'tennis racquet'],
+  ['運動用ボトル', 'sports bottle'],
 ];
 
-// Genre 34: 楽器 (40 words)
+// Genre 34: 楽器
 const GENRE_34_DATA: [string, string][] = [
   ['ピアノ', 'piano'],
   ['電子ピアノ', 'digital piano'],
@@ -196,9 +213,12 @@ const GENRE_34_DATA: [string, string][] = [
   ['琴', 'koto'],
   ['鈴', 'handbell'],
   ['指揮棒', 'baton'],
+  ['ホルン（現在よく使う短い呼び方）', 'horn'],
+  ['ドラムセット', 'drum kit'],
+  ['電子キーボード', 'electronic keyboard'],
 ];
 
-// Genre 35: 天気・自然現象 (45 words)
+// Genre 35: 天気・自然現象
 const GENRE_35_DATA: [string, string][] = [
   ['天気', 'weather'],
   ['晴れ', 'sunny weather'],
@@ -211,7 +231,7 @@ const GENRE_35_DATA: [string, string][] = [
   ['雪', 'snow'],
   ['みぞれ', 'sleet'],
   ['ひょう', 'hail'],
-  ['あられ', 'graupel (soft hail)'],
+  ['あられ', 'soft hail'],
   ['霧', 'fog'],
   ['もや', 'mist'],
   ['露', 'dew'],
@@ -245,11 +265,19 @@ const GENRE_35_DATA: [string, string][] = [
   ['雪崩', 'avalanche'],
   ['日食', 'solar eclipse'],
   ['月食', 'lunar eclipse'],
+  ['晴天・快晴', 'clear skies'],
+  ['晴れ時々曇り', 'partly cloudy'],
+  ['どんより曇った', 'overcast'],
+  ['蒸し暑い', 'muggy'],
+  ['湿気が多い', 'humid'],
+  ['肌寒い', 'chilly'],
+  ['凍えるほど寒い', 'freezing'],
+  ['体感温度', 'feels-like temperature'],
 ];
 
-// Genre 36: 星座・天体 (50 words)
+// Genre 36: 星座・天体
 const GENRE_36_DATA: [string, string][] = [
-  ['十二星座', 'zodiac sign'],
+  ['十二星座', 'the twelve zodiac signs'],
   ['やぎ座', 'Capricorn'],
   ['みずがめ座', 'Aquarius'],
   ['うお座', 'Pisces'],
@@ -262,12 +290,12 @@ const GENRE_36_DATA: [string, string][] = [
   ['てんびん座', 'Libra'],
   ['さそり座', 'Scorpio'],
   ['いて座', 'Sagittarius'],
-  ['宇宙', 'space'],
+  ['宇宙（地球外の空間）', 'space'],
   ['天体', 'celestial body'],
   ['星', 'star'],
   ['惑星', 'planet'],
   ['衛星', 'satellite'],
-  ['月', 'moon'],
+  ['月（地球の衛星）', 'the Moon'],
   ['太陽', 'sun'],
   ['地球', 'Earth'],
   ['水星', 'Mercury'],
@@ -299,9 +327,13 @@ const GENRE_36_DATA: [string, string][] = [
   ['宇宙飛行士', 'astronaut'],
   ['軌道', 'orbit'],
   ['重力', 'gravity'],
+  ['宇宙（存在するすべて）', 'the universe'],
+  ['星座占いの星座（1つ）', 'zodiac sign'],
+  ['流星（天文用語）', 'meteor'],
+  ['月（地球以外も含む一般語）', 'moon'],
 ];
 
-// Genre 37: 地形・自然環境 (45 words)
+// Genre 37: 地形・自然環境
 const GENRE_37_DATA: [string, string][] = [
   ['山', 'mountain'],
   ['山脈', 'mountain range'],
@@ -348,9 +380,14 @@ const GENRE_37_DATA: [string, string][] = [
   ['国立公園', 'national park'],
   ['生態系', 'ecosystem'],
   ['生息地', 'habitat'],
+  ['岸・海辺', 'shore'],
+  ['小川（特に米語）', 'creek'],
+  ['海辺・海岸沿い', 'seaside'],
+  ['山頂', 'summit'],
+  ['ふもと', 'foot of a mountain'],
 ];
 
-// Genre 38: 企業・ブランド名 (50 words)
+// Genre 38: 企業・ブランド名
 const GENRE_38_DATA: [string, string][] = [
   ['トヨタ', 'Toyota'],
   ['ホンダ', 'Honda'],
@@ -404,7 +441,7 @@ const GENRE_38_DATA: [string, string][] = [
   ['レゴ', 'LEGO'],
 ];
 
-// Genre 39: 顔のパーツ (47 words)
+// Genre 39: 顔のパーツ
 const GENRE_39_DATA: [string, string][] = [
   ['顔', 'face'],
   ['額', 'forehead'],
@@ -416,7 +453,7 @@ const GENRE_39_DATA: [string, string][] = [
   ['下まぶた', 'lower eyelid'],
   ['まつ毛', 'eyelash'],
   ['目', 'eye'],
-  ['瞳', 'pupil'],
+  ['瞳孔', 'pupil'],
   ['虹彩', 'iris'],
   ['白目', 'white of the eye'],
   ['目頭', 'inner corner of the eye'],
@@ -426,7 +463,7 @@ const GENRE_39_DATA: [string, string][] = [
   ['鼻', 'nose'],
   ['鼻筋', 'bridge of the nose'],
   ['鼻先', 'tip of the nose'],
-  ['小鼻', 'side of the nose'],
+  ['小鼻・鼻翼', 'side of the nostril'],
   ['鼻の穴', 'nostril'],
   ['頬', 'cheek'],
   ['頬骨', 'cheekbone'],
@@ -439,7 +476,7 @@ const GENRE_39_DATA: [string, string][] = [
   ['前歯', 'front tooth'],
   ['奥歯', 'molar'],
   ['犬歯', 'canine tooth'],
-  ['歯茎', 'gum'],
+  ['歯茎', 'gums'],
   ['舌', 'tongue'],
   ['顎', 'jaw'],
   ['顎先', 'chin'],
@@ -452,14 +489,20 @@ const GENRE_39_DATA: [string, string][] = [
   ['口ひげ', 'mustache'],
   ['あごひげ', 'beard'],
   ['もみあげ', 'sideburns'],
-  ['輪郭', 'facial contour'],
+  ['顔の輪郭', 'face shape'],
+  ['顎の輪郭', 'jawline'],
+  ['目の下のくま', 'dark circles under the eyes'],
+  ['目の下のたるみ', 'bags under the eyes'],
+  ['目尻のしわ', "crow's feet"],
+  ['二重顎', 'double chin'],
+  ['ほくろ（好意的な呼び方）', 'beauty mark'],
 ];
 
-// Genre 40: 算数（計算・図形） (108 words)
+// Genre 40: 算数（計算・図形）
 const GENRE_40_DATA: [string, string][] = [
   ['算数', 'arithmetic'],
   ['計算', 'calculation'],
-  ['式', 'expression'],
+  ['式（等号を含まないもの）', 'expression'],
   ['数式', 'mathematical expression'],
   ['答え', 'answer'],
   ['足し算', 'addition'],
@@ -502,16 +545,16 @@ const GENRE_40_DATA: [string, string][] = [
   ['4分の1', 'one quarter'],
   ['倍', 'times'],
   ['2倍', 'twice'],
-  ['四捨五入', 'rounding to the nearest number'],
+  ['四捨五入', 'rounding'],
   ['切り上げ', 'rounding up'],
   ['切り捨て', 'rounding down'],
-  ['概数', 'approximate number'],
+  ['概数', 'approximate value'],
   ['平均', 'average'],
   ['図形', 'shape'],
   ['点', 'point'],
   ['線', 'line'],
   ['直線', 'straight line'],
-  ['曲線', 'curved line'],
+  ['曲線', 'curve'],
   ['線分', 'line segment'],
   ['角', 'angle'],
   ['直角', 'right angle'],
@@ -565,6 +608,15 @@ const GENRE_40_DATA: [string, string][] = [
   ['棒グラフ', 'bar graph'],
   ['折れ線グラフ', 'line graph'],
   ['円グラフ', 'pie chart'],
+  ['方程式・等式', 'equation'],
+  ['より大きい', 'greater than'],
+  ['より小さい', 'less than'],
+  ['以上', 'greater than or equal to'],
+  ['以下', 'less than or equal to'],
+  ['2乗', 'squared'],
+  ['3乗', 'cubed'],
+  ['小数第2位まで', 'to two decimal places'],
+  ['およそ・約', 'approximately'],
 ];
 
 export const WORDS_PART_4: WordItem[] = [

@@ -1,11 +1,11 @@
 import { WordItem } from '../types';
 import { makeWordList } from './wordUtils';
 
-// Genre 11: 調理器具 (35 words)
+// Genre 11: 調理器具
 const GENRE_11_DATA: [string, string][] = [
   ['鍋', 'pot'],
   ['片手鍋', 'saucepan'],
-  ['両手鍋', 'stockpot'],
+  ['両手鍋', 'two-handled pot'],
   ['フライパン', 'frying pan'],
   ['中華鍋', 'wok'],
   ['圧力鍋', 'pressure cooker'],
@@ -13,7 +13,7 @@ const GENRE_11_DATA: [string, string][] = [
   ['蒸し器', 'steamer'],
   ['やかん', 'kettle'],
   ['卵焼き器', 'rectangular omelet pan'],
-  ['天板', 'baking sheet'],
+  ['天板（オーブン用）', 'baking sheet'],
   ['オーブン皿', 'baking dish'],
   ['耐熱皿', 'ovenproof dish'],
   ['ボウル', 'mixing bowl'],
@@ -25,7 +25,7 @@ const GENRE_11_DATA: [string, string][] = [
   ['パン切り包丁', 'bread knife'],
   ['キッチンばさみ', 'kitchen scissors'],
   ['おたま', 'ladle'],
-  ['フライ返し', 'spatula'],
+  ['フライ返し', 'turner'],
   ['木べら', 'wooden spatula'],
   ['泡立て器', 'whisk'],
   ['トング', 'tongs'],
@@ -38,9 +38,13 @@ const GENRE_11_DATA: [string, string][] = [
   ['温度計', 'cooking thermometer'],
   ['麺棒', 'rolling pin'],
   ['焼き網', 'grill rack'],
+  ['フライ返し（一般的な呼び方）', 'spatula'],
+  ['ゴムべら', 'rubber spatula'],
+  ['深い寸胴鍋', 'stockpot'],
+  ['こし器・小さなざる', 'strainer'],
 ];
 
-// Genre 12: キッチン用品 (37 words)
+// Genre 12: キッチン用品
 const GENRE_12_DATA: [string, string][] = [
   ['ラップ', 'plastic wrap'],
   ['アルミホイル', 'aluminum foil'],
@@ -60,7 +64,7 @@ const GENRE_12_DATA: [string, string][] = [
   ['密閉袋', 'resealable bag'],
   ['保存容器', 'food storage container'],
   ['弁当箱', 'lunch box'],
-  ['水筒', 'water bottle'],
+  ['水筒', 'reusable water bottle'],
   ['製氷皿', 'ice cube tray'],
   ['栓抜き', 'bottle opener'],
   ['缶切り', 'can opener'],
@@ -79,9 +83,12 @@ const GENRE_12_DATA: [string, string][] = [
   ['竹串', 'bamboo skewer'],
   ['アイスパック', 'ice pack'],
   ['漏斗', 'funnel'],
+  ['保温・保冷ボトル', 'insulated bottle'],
+  ['魔法瓶（商標由来の口語）', 'thermos'],
+  ['ジッパー付き保存袋', 'zip-top bag'],
 ];
 
-// Genre 13: 家具 (35 words)
+// Genre 13: 家具
 const GENRE_13_DATA: [string, string][] = [
   ['机', 'desk'],
   ['テーブル', 'table'],
@@ -89,7 +96,7 @@ const GENRE_13_DATA: [string, string][] = [
   ['ソファ', 'sofa'],
   ['ベンチ', 'bench'],
   ['スツール', 'stool'],
-  ['本棚', 'bookshelf'],
+  ['本棚（家具全体）', 'bookcase'],
   ['棚', 'shelf'],
   ['食器棚', 'cupboard'],
   ['たんす', 'chest of drawers'],
@@ -118,9 +125,14 @@ const GENRE_13_DATA: [string, string][] = [
   ['ハンガーラック', 'clothes rack'],
   ['間仕切り', 'room divider'],
   ['こたつ', 'heated table'],
+  ['本棚の一段', 'bookshelf'],
+  ['ソファ（特に米・口語的）', 'couch'],
+  ['ベッド脇の小机', 'nightstand'],
+  ['収納用の戸棚', 'cabinet'],
+  ['たんす（特に米語）', 'dresser'],
 ];
 
-// Genre 14: 家電製品 (35 words)
+// Genre 14: 家電製品
 const GENRE_14_DATA: [string, string][] = [
   ['冷蔵庫', 'refrigerator'],
   ['冷凍庫', 'freezer'],
@@ -157,9 +169,13 @@ const GENRE_14_DATA: [string, string][] = [
   ['充電器', 'charger'],
   ['モバイルバッテリー', 'power bank'],
   ['体重計', 'bathroom scale'],
+  ['冷蔵庫（口語的）', 'fridge'],
+  ['エアコン（略称・口語的）', 'AC'],
+  ['リモコン', 'remote control'],
+  ['コンセントにつなぐ電源アダプター', 'power adapter'],
 ];
 
-// Genre 15: 掃除・洗濯用品 (35 words)
+// Genre 15: 掃除・洗濯用品
 const GENRE_15_DATA: [string, string][] = [
   ['ほうき', 'broom'],
   ['ちりとり', 'dustpan'],
@@ -185,8 +201,8 @@ const GENRE_15_DATA: [string, string][] = [
   ['柔軟剤', 'fabric softener'],
   ['洗濯ネット', 'laundry net'],
   ['洗濯かご', 'laundry basket'],
-  ['物干しざお', 'clothesline pole'],
-  ['物干しハンガー', 'drying hanger'],
+  ['物干しざお', 'clothes-drying pole'],
+  ['物干しハンガー（洗濯ばさみ付き）', 'hanging dryer with clips'],
   ['洗濯ばさみ', 'clothespin'],
   ['ハンガー', 'clothes hanger'],
   ['アイロン台', 'ironing board'],
@@ -196,16 +212,19 @@ const GENRE_15_DATA: [string, string][] = [
   ['ゴミ袋', 'trash bag'],
   ['ゴミ箱', 'trash can'],
   ['使い捨て手袋', 'disposable gloves'],
+  ['物干し台・室内物干し', 'drying rack'],
+  ['物干しロープ', 'clothesline'],
+  ['糸くず・ペットの毛', 'lint'],
 ];
 
-// Genre 16: 日用品・消耗品 (38 words)
+// Genre 16: 日用品・消耗品
 const GENRE_16_DATA: [string, string][] = [
   ['ティッシュ', 'tissue'],
   ['トイレットペーパー', 'toilet paper'],
   ['ウェットティッシュ', 'wet wipes'],
   ['マスク', 'face mask'],
   ['綿棒', 'cotton swab'],
-  ['脱脂綿', 'cotton wool'],
+  ['脱脂綿', 'absorbent cotton'],
   ['ばんそうこう', 'adhesive bandage'],
   ['消毒液', 'antiseptic'],
   ['体温計', 'thermometer'],
@@ -226,7 +245,7 @@ const GENRE_16_DATA: [string, string][] = [
   ['くし', 'comb'],
   ['ヘアブラシ', 'hairbrush'],
   ['生理用品', 'menstrual products'],
-  ['生理用ナプキン', 'sanitary pad'],
+  ['生理用ナプキン', 'menstrual pad'],
   ['タンポン', 'tampon'],
   ['紙おむつ', 'disposable diaper'],
   ['乾電池', 'battery'],
@@ -234,13 +253,17 @@ const GENRE_16_DATA: [string, string][] = [
   ['ろうそく', 'candle'],
   ['ライター', 'lighter'],
   ['傘', 'umbrella'],
-  ['使い捨てカイロ', 'disposable hand warmer'],
+  ['使い捨てカイロ', 'disposable heat pack'],
   ['虫よけ', 'insect repellent'],
   ['日焼け止め', 'sunscreen'],
   ['耳栓', 'earplugs'],
+  ['綿棒（主にイギリス英語）', 'cotton bud'],
+  ['ばんそうこう（米・口語的）', 'Band-Aid'],
+  ['生理用ナプキン（口語的）', 'pad'],
+  ['紙おむつ（主に英）', 'disposable nappy'],
 ];
 
-// Genre 17: 文房具 (36 words)
+// Genre 17: 文房具
 const GENRE_17_DATA: [string, string][] = [
   ['鉛筆', 'pencil'],
   ['シャープペンシル', 'mechanical pencil'],
@@ -269,7 +292,7 @@ const GENRE_17_DATA: [string, string][] = [
   ['原稿用紙', 'manuscript paper'],
   ['封筒', 'envelope'],
   ['便箋', 'writing paper'],
-  ['下敷き', 'writing mat'],
+  ['下敷き', 'pencil board'],
   ['筆箱', 'pencil case'],
   ['ファイル', 'file folder'],
   ['バインダー', 'binder'],
@@ -277,10 +300,12 @@ const GENRE_17_DATA: [string, string][] = [
   ['修正テープ', 'correction tape'],
   ['修正液', 'correction fluid'],
   ['インク', 'ink'],
-  ['朱肉', 'stamp pad'],
+  ['朱肉', 'red ink pad'],
+  ['付箋（商標由来の呼び方）', 'Post-it note'],
+  ['コピー用紙', 'printer paper'],
 ];
 
-// Genre 18: 衣類 (48 words)
+// Genre 18: 衣類
 const GENRE_18_DATA: [string, string][] = [
   ['Tシャツ', 'T-shirt'],
   ['シャツ', 'shirt'],
@@ -289,7 +314,7 @@ const GENRE_18_DATA: [string, string][] = [
   ['セーター', 'sweater'],
   ['カーディガン', 'cardigan'],
   ['パーカー', 'hoodie'],
-  ['スウェット', 'sweatshirt'],
+  ['スウェット（上）', 'sweatshirt'],
   ['ジャケット', 'jacket'],
   ['コート', 'coat'],
   ['ダウンジャケット', 'down jacket'],
@@ -305,7 +330,7 @@ const GENRE_18_DATA: [string, string][] = [
   ['ジャージ', 'tracksuit'],
   ['レギンス', 'leggings'],
   ['下着', 'underwear'],
-  ['肌着', 'undershirt'],
+  ['肌着', 'undergarment'],
   ['ブラジャー', 'bra'],
   ['パンツ', 'underpants'],
   ['靴下', 'socks'],
@@ -330,9 +355,16 @@ const GENRE_18_DATA: [string, string][] = [
   ['ポケット', 'pocket'],
   ['ボタン', 'button'],
   ['ファスナー', 'zipper'],
+  ['ズボン（主に英）', 'trousers'],
+  ['ファスナー（主に英）', 'zip'],
+  ['タンクトップ', 'tank top'],
+  ['スウェットパンツ', 'sweatpants'],
+  ['女性用パンツ', 'panties'],
+  ['ボクサーパンツ', 'boxers'],
+  ['ブリーフ', 'briefs'],
 ];
 
-// Genre 19: 靴・履物 (22 words)
+// Genre 19: 靴・履物
 const GENRE_19_DATA: [string, string][] = [
   ['靴', 'shoes'],
   ['スニーカー', 'sneakers'],
@@ -356,9 +388,13 @@ const GENRE_19_DATA: [string, string][] = [
   ['かかと', 'heel'],
   ['中敷き', 'insole'],
   ['靴べら', 'shoehorn'],
+  ['スニーカー（主に英）', 'trainers'],
+  ['ランニングシューズ', 'running shoes'],
+  ['かかとの低い婦人靴', 'flats'],
+  ['室内履き（家庭用）', 'house slippers'],
 ];
 
-// Genre 20: アクセサリー・装飾品 (30 words)
+// Genre 20: アクセサリー・装飾品
 const GENRE_20_DATA: [string, string][] = [
   ['指輪', 'ring'],
   ['結婚指輪', 'wedding ring'],
@@ -368,7 +404,7 @@ const GENRE_20_DATA: [string, string][] = [
   ['ブレスレット', 'bracelet'],
   ['腕時計', 'wristwatch'],
   ['イヤリング', 'clip-on earrings'],
-  ['ピアス', 'earrings'],
+  ['ピアス', 'pierced earrings'],
   ['ブローチ', 'brooch'],
   ['髪飾り', 'hair accessory'],
   ['ヘアピン', 'hairpin'],
@@ -384,12 +420,16 @@ const GENRE_20_DATA: [string, string][] = [
   ['リュック', 'backpack'],
   ['トートバッグ', 'tote bag'],
   ['ポーチ', 'pouch'],
-  ['キーホルダー', 'key chain'],
+  ['キーホルダー', 'keychain'],
   ['名札', 'name tag'],
   ['ワッペン', 'patch'],
   ['缶バッジ', 'button badge'],
   ['宝石', 'gemstone'],
   ['真珠', 'pearl'],
+  ['スタッドピアス', 'stud earrings'],
+  ['フープピアス', 'hoop earrings'],
+  ['女性用の財布（主に英）', 'purse'],
+  ['眼鏡のフレーム', 'eyeglass frames'],
 ];
 
 export const WORDS_PART_2: WordItem[] = [

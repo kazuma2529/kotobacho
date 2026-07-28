@@ -1,10 +1,10 @@
 import { WordItem } from '../types';
 import { makeWordList } from './wordUtils';
 
-// Genre 21: 化粧品・美容用品 (36 words)
+// Genre 21: 化粧品・美容用品
 const GENRE_21_DATA: [string, string][] = [
   ['化粧水', 'toner'],
-  ['乳液', 'moisturizing emulsion'],
+  ['乳液', 'moisturizing lotion'],
   ['美容液', 'serum'],
   ['保湿クリーム', 'moisturizer'],
   ['クレンジング', 'makeup remover'],
@@ -15,7 +15,7 @@ const GENRE_21_DATA: [string, string][] = [
   ['コンシーラー', 'concealer'],
   ['フェイスパウダー', 'face powder'],
   ['チーク', 'blush'],
-  ['アイシャドウ', 'eye shadow'],
+  ['アイシャドウ', 'eyeshadow'],
   ['アイライナー', 'eyeliner'],
   ['マスカラ', 'mascara'],
   ['眉ペンシル', 'eyebrow pencil'],
@@ -28,7 +28,7 @@ const GENRE_21_DATA: [string, string][] = [
   ['制汗剤', 'antiperspirant'],
   ['デオドラント', 'deodorant'],
   ['ヘアワックス', 'hair wax'],
-  ['ヘアスプレー', 'hair spray'],
+  ['ヘアスプレー', 'hairspray'],
   ['ヘアオイル', 'hair oil'],
   ['ヘアカラー', 'hair dye'],
   ['コットン', 'cotton pad'],
@@ -37,11 +37,16 @@ const GENRE_21_DATA: [string, string][] = [
   ['ビューラー', 'eyelash curler'],
   ['手鏡', 'hand mirror'],
   ['毛抜き', 'tweezers'],
-  ['フェイスパック', 'face mask'],
+  ['フェイスパック（シート状）', 'sheet mask'],
   ['ネイルファイル', 'nail file'],
+  ['化粧用スポンジ', 'makeup sponge'],
+  ['フェイスパック（一般語）', 'face mask'],
+  ['つけまつ毛', 'false eyelashes'],
+  ['ハイライト用化粧品', 'highlighter'],
+  ['シェーディング用化粧品', 'contour'],
 ];
 
-// Genre 22: 身体の部位 (54 words)
+// Genre 22: 身体の部位
 const GENRE_22_DATA: [string, string][] = [
   ['頭', 'head'],
   ['首', 'neck'],
@@ -49,7 +54,7 @@ const GENRE_22_DATA: [string, string][] = [
   ['胸', 'chest'],
   ['背中', 'back'],
   ['腰', 'lower back'],
-  ['腹', 'abdomen'],
+  ['腹（解剖学的）', 'abdomen'],
   ['へそ', 'belly button'],
   ['脇', 'armpit'],
   ['腕', 'arm'],
@@ -74,8 +79,8 @@ const GENRE_22_DATA: [string, string][] = [
   ['足', 'foot'],
   ['かかと', 'heel'],
   ['足の裏', 'sole'],
-  ['つま先', 'toe'],
-  ['お尻', 'buttocks'],
+  ['つま先・足の指先', 'toes'],
+  ['お尻（やや改まった表現）', 'buttocks'],
   ['骨', 'bone'],
   ['筋肉', 'muscle'],
   ['関節', 'joint'],
@@ -83,11 +88,11 @@ const GENRE_22_DATA: [string, string][] = [
   ['血管', 'blood vessel'],
   ['血液', 'blood'],
   ['心臓', 'heart'],
-  ['肺', 'lung'],
+  ['肺（片方）', 'lung'],
   ['胃', 'stomach'],
-  ['腸', 'intestine'],
+  ['腸', 'intestines'],
   ['肝臓', 'liver'],
-  ['腎臓', 'kidney'],
+  ['腎臓（片方）', 'kidney'],
   ['脳', 'brain'],
   ['神経', 'nerve'],
   ['喉', 'throat'],
@@ -97,9 +102,30 @@ const GENRE_22_DATA: [string, string][] = [
   ['骨盤', 'pelvis'],
   ['腱', 'tendon'],
   ['靭帯', 'ligament'],
+  ['腰（くびれの部分）', 'waist'],
+  ['腰・臀部の横', 'hip'],
+  ['お腹（口語的）', 'belly'],
+  ['お腹（やさしい口語）', 'tummy'],
+  ['足の指（1本）', 'toe'],
+  ['小指（米・口語的）', 'pinky'],
+  ['胸・乳房（片方）', 'breast'],
+  ['胸・乳房（両方）', 'breasts'],
+  ['おっぱい（くだけた口語）', 'boobs'],
+  ['おっぱい（露骨な俗語）', 'tits'],
+  ['乳首', 'nipple'],
+  ['お尻（口語的）', 'butt'],
+  ['お尻（主に英・口語的）', 'bum'],
+  ['尻（下品な俗語）', 'ass'],
+  ['尻の片側', 'butt cheek'],
+  ['股間（衣服を含む一般語）', 'crotch'],
+  ['脚の付け根・鼠径部', 'groin'],
+  ['胴体', 'torso'],
+  ['前腕', 'forearm'],
+  ['握りこぶし', 'fist'],
+  ['指の関節', 'knuckle'],
 ];
 
-// Genre 23: 病気・症状 (44 words)
+// Genre 23: 病気・症状
 const GENRE_23_DATA: [string, string][] = [
   ['風邪', 'cold'],
   ['インフルエンザ', 'flu'],
@@ -113,7 +139,7 @@ const GENRE_23_DATA: [string, string][] = [
   ['腹痛', 'stomachache'],
   ['腰痛', 'lower back pain'],
   ['関節痛', 'joint pain'],
-  ['筋肉痛', 'muscle soreness'],
+  ['筋肉痛', 'sore muscles'],
   ['吐き気', 'nausea'],
   ['嘔吐', 'vomiting'],
   ['下痢', 'diarrhea'],
@@ -138,16 +164,23 @@ const GENRE_23_DATA: [string, string][] = [
   ['骨折', 'fracture'],
   ['打撲', 'bruise'],
   ['脱水症状', 'dehydration'],
-  ['熱中症', 'heatstroke'],
+  ['熱中症（総称）', 'heat illness'],
   ['食中毒', 'food poisoning'],
   ['高血圧', 'high blood pressure'],
   ['糖尿病', 'diabetes'],
   ['虫歯', 'cavity'],
   ['口内炎', 'mouth ulcer'],
   ['ものもらい', 'stye'],
+  ['熱疲労（熱中症の一種）', 'heat exhaustion'],
+  ['熱射病・重度の熱中症', 'heatstroke'],
+  ['口内炎（米語でよく使う）', 'canker sore'],
+  ['胃のむかつき', 'upset stomach'],
+  ['体がだるい', 'feeling sluggish'],
+  ['鼻がむずむずする', 'itchy nose'],
+  ['骨が折れた状態（口語的）', 'broken bone'],
 ];
 
-// Genre 24: 職業 (50 words)
+// Genre 24: 職業
 const GENRE_24_DATA: [string, string][] = [
   ['会社員', 'office worker'],
   ['公務員', 'civil servant'],
@@ -184,10 +217,10 @@ const GENRE_24_DATA: [string, string][] = [
   ['整備士', 'mechanic'],
   ['農家', 'farmer'],
   ['漁師', 'fisherman'],
-  ['料理人', 'chef'],
+  ['料理人（特に専門職）', 'chef'],
   ['美容師', 'hairdresser'],
   ['理容師', 'barber'],
-  ['記者', 'journalist'],
+  ['記者', 'reporter'],
   ['編集者', 'editor'],
   ['通訳者', 'interpreter'],
   ['翻訳者', 'translator'],
@@ -198,10 +231,21 @@ const GENRE_24_DATA: [string, string][] = [
   ['運転手', 'driver'],
   ['客室乗務員', 'flight attendant'],
   ['パイロット', 'pilot'],
-  ['配達員', 'delivery driver'],
+  ['配達員', 'delivery person'],
+  ['料理人・調理担当者', 'cook'],
+  ['宅配便の配達員', 'courier'],
+  ['レジ係', 'cashier'],
+  ['飲食店の接客係', 'server'],
+  ['ウェイター', 'waiter'],
+  ['ウェイトレス', 'waitress'],
+  ['バリスタ', 'barista'],
+  ['獣医（口語的）', 'vet'],
+  ['警察官（くだけた口語・場面により失礼）', 'cop'],
+  ['弁護士（特に米語）', 'attorney'],
+  ['ジャーナリスト', 'journalist'],
 ];
 
-// Genre 25: 学問・研究分野 (40 words)
+// Genre 25: 学問・研究分野
 const GENRE_25_DATA: [string, string][] = [
   ['文学', 'literature'],
   ['言語学', 'linguistics'],
@@ -228,7 +272,7 @@ const GENRE_25_DATA: [string, string][] = [
   ['気象学', 'meteorology'],
   ['環境科学', 'environmental science'],
   ['医学', 'medicine'],
-  ['薬学', 'pharmacy'],
+  ['薬学', 'pharmaceutical sciences'],
   ['看護学', 'nursing'],
   ['農学', 'agricultural science'],
   ['工学', 'engineering'],
@@ -236,16 +280,19 @@ const GENRE_25_DATA: [string, string][] = [
   ['電気工学', 'electrical engineering'],
   ['土木工学', 'civil engineering'],
   ['建築学', 'architecture'],
-  ['情報科学', 'computer science'],
+  ['情報科学', 'information science'],
   ['人工知能', 'artificial intelligence'],
   ['データ科学', 'data science'],
   ['芸術学', 'art studies'],
   ['音楽学', 'musicology'],
   ['神学', 'theology'],
   ['倫理学', 'ethics'],
+  ['コンピュータ科学・計算機科学', 'computer science'],
+  ['経営学（主にイギリス英語）', 'business studies'],
+  ['美術史', 'art history'],
 ];
 
-// Genre 26: 学校・教育施設 (30 words)
+// Genre 26: 学校・教育施設
 const GENRE_26_DATA: [string, string][] = [
   ['保育園', 'daycare center'],
   ['幼稚園', 'kindergarten'],
@@ -260,13 +307,13 @@ const GENRE_26_DATA: [string, string][] = [
   ['学習塾', 'cram school'],
   ['語学学校', 'language school'],
   ['職業訓練校', 'vocational training school'],
-  ['通信制学校', 'correspondence school'],
+  ['通信制学校', 'distance-learning school'],
   ['特別支援学校', 'special needs school'],
   ['校舎', 'school building'],
   ['教室', 'classroom'],
   ['講義室', 'lecture hall'],
   ['体育館', 'gymnasium'],
-  ['運動場', 'schoolyard'],
+  ['運動場・校庭', 'schoolyard'],
   ['図書室', 'school library'],
   ['理科室', 'science lab'],
   ['音楽室', 'music room'],
@@ -275,17 +322,20 @@ const GENRE_26_DATA: [string, string][] = [
   ['保健室', "school nurse's office"],
   ['食堂', 'cafeteria'],
   ['寮', 'dormitory'],
-  ['研究室', 'laboratory'],
+  ['研究室（研究を行う部屋）', 'research lab'],
   ['自習室', 'study room'],
+  ['校庭・遊び場', 'playground'],
+  ['大学教員の研究室・執務室', 'faculty office'],
+  ['学生食堂', 'dining hall'],
 ];
 
-// Genre 27: 店舗・商業施設 (35 words)
+// Genre 27: 店舗・商業施設
 const GENRE_27_DATA: [string, string][] = [
   ['コンビニ', 'convenience store'],
   ['スーパーマーケット', 'supermarket'],
   ['百貨店', 'department store'],
   ['ショッピングモール', 'shopping mall'],
-  ['100円ショップ', 'dollar store'],
+  ['100円ショップ', '100-yen shop'],
   ['ドラッグストア', 'drugstore'],
   ['ホームセンター', 'home improvement store'],
   ['家電量販店', 'electronics store'],
@@ -316,9 +366,14 @@ const GENRE_27_DATA: [string, string][] = [
   ['携帯電話ショップ', 'mobile phone store'],
   ['映画館', 'movie theater'],
   ['ゲームセンター', 'arcade'],
+  ['均一価格店（米）', 'dollar store'],
+  ['魚屋・鮮魚店（主に米）', 'fish market'],
+  ['持ち帰り料理店（主に英）', 'takeaway'],
+  ['古着店・リサイクルショップ', 'thrift store'],
+  ['屋台・露店', 'food stall'],
 ];
 
-// Genre 28: 公共施設 (34 words)
+// Genre 28: 公共施設
 const GENRE_28_DATA: [string, string][] = [
   ['市役所', 'city hall'],
   ['区役所', 'ward office'],
@@ -354,19 +409,22 @@ const GENRE_28_DATA: [string, string][] = [
   ['公衆トイレ', 'public restroom'],
   ['観光案内所', 'tourist information center'],
   ['職業安定所', 'employment office'],
+  ['職業安定所（主に英）', 'job centre'],
+  ['救急外来', 'emergency room'],
+  ['市役所などの総合庁舎', 'municipal office'],
 ];
 
-// Genre 29: 交通機関 (40 words)
+// Genre 29: 交通機関
 const GENRE_29_DATA: [string, string][] = [
   ['電車', 'train'],
   ['地下鉄', 'subway'],
   ['新幹線', 'bullet train'],
   ['特急列車', 'limited express train'],
   ['普通列車', 'local train'],
-  ['路面電車', 'streetcar'],
+  ['路面電車（米語）', 'streetcar'],
   ['モノレール', 'monorail'],
   ['バス', 'bus'],
-  ['路線バス', 'city bus'],
+  ['路線バス', 'local bus'],
   ['高速バス', 'highway bus'],
   ['スクールバス', 'school bus'],
   ['タクシー', 'taxi'],
@@ -387,30 +445,37 @@ const GENRE_29_DATA: [string, string][] = [
   ['フェリー', 'ferry'],
   ['ボート', 'boat'],
   ['ヨット', 'sailboat'],
-  ['地下道', 'underpass'],
+  ['地下道（歩行者用）', 'pedestrian underpass'],
   ['駅', 'station'],
-  ['停留所', 'stop'],
+  ['停留所', 'transit stop'],
   ['空港', 'airport'],
   ['港', 'port'],
-  ['乗り場', 'boarding area'],
+  ['乗り場（交通機関の一般語）', 'boarding area'],
   ['改札口', 'ticket gate'],
   ['ホーム', 'platform'],
   ['運賃', 'fare'],
   ['乗車券', 'ticket'],
   ['定期券', 'commuter pass'],
+  ['路面電車（主に英）', 'tram'],
+  ['ロンドン地下鉄', 'the Underground'],
+  ['地下鉄（多くの都市で使う呼び方）', 'metro'],
+  ['往復切符', 'round-trip ticket'],
+  ['片道切符', 'one-way ticket'],
+  ['乗り換え', 'transfer'],
+  ['電動自転車（口語的）', 'e-bike'],
 ];
 
-// Genre 30: 道路・街中の設備 (38 words)
+// Genre 30: 道路・街中の設備
 const GENRE_30_DATA: [string, string][] = [
   ['道路', 'road'],
   ['車道', 'roadway'],
   ['歩道', 'sidewalk'],
   ['横断歩道', 'crosswalk'],
   ['交差点', 'intersection'],
-  ['丁字路', 'T-junction'],
+  ['丁字路（主に英）', 'T-junction'],
   ['一方通行', 'one-way street'],
   ['高速道路', 'expressway'],
-  ['一般道', 'local road'],
+  ['一般道・高速道路以外の道', 'ordinary road'],
   ['トンネル', 'tunnel'],
   ['橋', 'bridge'],
   ['歩道橋', 'pedestrian bridge'],
@@ -425,8 +490,8 @@ const GENRE_30_DATA: [string, string][] = [
   ['街灯', 'streetlight'],
   ['電柱', 'utility pole'],
   ['電線', 'power line'],
-  ['マンホール', 'manhole'],
-  ['側溝', 'gutter'],
+  ['マンホールのふた', 'manhole cover'],
+  ['側溝', 'drainage ditch'],
   ['排水口', 'storm drain'],
   ['バス停', 'bus stop'],
   ['タクシー乗り場', 'taxi stand'],
@@ -434,12 +499,19 @@ const GENRE_30_DATA: [string, string][] = [
   ['駐輪場', 'bicycle parking area'],
   ['自動販売機', 'vending machine'],
   ['公衆電話', 'pay phone'],
-  ['郵便ポスト', 'mailbox'],
+  ['郵便ポスト（米語）', 'mailbox'],
   ['ベンチ', 'bench'],
   ['防犯カメラ', 'security camera'],
   ['工事現場', 'construction site'],
   ['迂回路', 'detour'],
   ['街路樹', 'street tree'],
+  ['丁字路（米語）', 'T-intersection'],
+  ['高速道路（米・口語的）', 'freeway'],
+  ['高速道路（一般語）', 'highway'],
+  ['一般道（米・口語的）', 'surface street'],
+  ['郵便ポスト（主に英）', 'postbox'],
+  ['路地', 'alley'],
+  ['車線', 'lane'],
 ];
 
 export const WORDS_PART_3: WordItem[] = [
