@@ -1,7 +1,7 @@
 import { WordItem } from '../types';
 import { makeWordList } from './wordUtils';
 
-// Genre 1: 虫・昆虫 (38 words)
+// Genre 1: 虫・昆虫
 const GENRE_1_DATA: [string, string][] = [
   ['アリ', 'ant'],
   ['ハチ', 'bee'],
@@ -41,13 +41,18 @@ const GENRE_1_DATA: [string, string][] = [
   ['オケラ', 'mole cricket'],
   ['ゲンゴロウ', 'diving beetle'],
   ['アメンボ', 'water strider'],
+  ['虫（小さな虫の一般語・口語的）', 'bug'],
+  ['昆虫（生物学的な一般語）', 'insect'],
+  ['ハチ（ミツバチ以外の一般語）', 'wasp'],
+  ['マルハナバチ', 'bumblebee'],
+  ['ウジ', 'maggot'],
 ];
 
-// Genre 2: 魚・海の生き物 (42 words)
+// Genre 2: 魚・海の生き物
 const GENRE_2_DATA: [string, string][] = [
   ['サケ', 'salmon'],
   ['マグロ', 'tuna'],
-  ['カツオ', 'bonito'],
+  ['カツオ', 'skipjack tuna'],
   ['サバ', 'mackerel'],
   ['アジ', 'horse mackerel'],
   ['イワシ', 'sardine'],
@@ -55,7 +60,7 @@ const GENRE_2_DATA: [string, string][] = [
   ['タイ', 'sea bream'],
   ['ブリ', 'yellowtail'],
   ['ヒラメ', 'flounder'],
-  ['カレイ', 'flatfish'],
+  ['カレイ', 'righteye flounder'],
   ['タラ', 'cod'],
   ['ウナギ', 'eel'],
   ['アナゴ', 'conger eel'],
@@ -70,7 +75,7 @@ const GENRE_2_DATA: [string, string][] = [
   ['クジラ', 'whale'],
   ['シャチ', 'orca'],
   ['アザラシ', 'seal'],
-  ['アシナ', 'sea lion'],
+  ['アシカ', 'sea lion'],
   ['ラッコ', 'sea otter'],
   ['クラゲ', 'jellyfish'],
   ['タコ', 'octopus'],
@@ -87,9 +92,14 @@ const GENRE_2_DATA: [string, string][] = [
   ['ナマコ', 'sea cucumber'],
   ['サンゴ', 'coral'],
   ['海藻', 'seaweed'],
+  ['平たい魚の総称', 'flatfish'],
+  ['エビ（主にイギリス英語）', 'prawn'],
+  ['ウミガメ', 'sea turtle'],
+  ['タツノオトシゴ', 'seahorse'],
+  ['貝類・甲殻類（食材として）', 'shellfish'],
 ];
 
-// Genre 3: 動物 (42 words)
+// Genre 3: 動物
 const GENRE_3_DATA: [string, string][] = [
   ['犬', 'dog'],
   ['猫', 'cat'],
@@ -97,7 +107,7 @@ const GENRE_3_DATA: [string, string][] = [
   ['ハムスター', 'hamster'],
   ['モルモット', 'guinea pig'],
   ['馬', 'horse'],
-  ['牛', 'cow'],
+  ['牛（特に成長した雌）', 'cow'],
   ['豚', 'pig'],
   ['羊', 'sheep'],
   ['ヤギ', 'goat'],
@@ -111,7 +121,7 @@ const GENRE_3_DATA: [string, string][] = [
   ['狐', 'fox'],
   ['たぬき', 'raccoon dog'],
   ['リス', 'squirrel'],
-  ['ネズミ', 'mouse'],
+  ['ネズミ（小型）', 'mouse'],
   ['コウモリ', 'bat'],
   ['猿', 'monkey'],
   ['ゴリラ', 'gorilla'],
@@ -133,9 +143,15 @@ const GENRE_3_DATA: [string, string][] = [
   ['カワウソ', 'otter'],
   ['ビーバー', 'beaver'],
   ['ラクダ', 'camel'],
+  ['ネズミ（大型）', 'rat'],
+  ['子犬', 'puppy'],
+  ['子猫', 'kitten'],
+  ['雄牛', 'bull'],
+  ['子牛', 'calf'],
+  ['牛（家畜としての総称）', 'cattle'],
 ];
 
-// Genre 4: 植物・草花 (34 words)
+// Genre 4: 植物・草花
 const GENRE_4_DATA: [string, string][] = [
   ['花', 'flower'],
   ['草', 'grass'],
@@ -171,9 +187,13 @@ const GENRE_4_DATA: [string, string][] = [
   ['つる植物', 'vine'],
   ['観葉植物', 'houseplant'],
   ['多肉植物', 'succulent'],
+  ['木', 'tree'],
+  ['枝', 'branch'],
+  ['幹', 'trunk'],
+  ['樹皮', 'bark'],
 ];
 
-// Genre 5: 野菜 (41 words)
+// Genre 5: 野菜
 const GENRE_5_DATA: [string, string][] = [
   ['キャベツ', 'cabbage'],
   ['レタス', 'lettuce'],
@@ -184,7 +204,7 @@ const GENRE_5_DATA: [string, string][] = [
   ['ブロッコリー', 'broccoli'],
   ['カリフラワー', 'cauliflower'],
   ['玉ねぎ', 'onion'],
-  ['長ねぎ', 'green onion'],
+  ['長ねぎ・青ねぎ（一般的な米語）', 'green onion'],
   ['にんにく', 'garlic'],
   ['しょうが', 'ginger'],
   ['にんじん', 'carrot'],
@@ -196,12 +216,12 @@ const GENRE_5_DATA: [string, string][] = [
   ['さつまいも', 'sweet potato'],
   ['里芋', 'taro'],
   ['山芋', 'yam'],
-  ['かぼちゃ', 'pumpkin'],
+  ['かぼちゃ', 'kabocha squash'],
   ['きゅうり', 'cucumber'],
   ['なす', 'eggplant'],
   ['トマト', 'tomato'],
-  ['ピーマン', 'green pepper'],
-  ['パプリカ', 'bell pepper'],
+  ['ピーマン', 'green bell pepper'],
+  ['パプリカ（赤・黄など）', 'bell pepper'],
   ['唐辛子', 'chili pepper'],
   ['オクラ', 'okra'],
   ['ズッキーニ', 'zucchini'],
@@ -216,9 +236,15 @@ const GENRE_5_DATA: [string, string][] = [
   ['しいたけ', 'shiitake mushroom'],
   ['えのき', 'enoki mushroom'],
   ['しめじ', 'shimeji mushroom'],
+  ['長ねぎ・青ねぎ（米語）', 'scallion'],
+  ['長ねぎ・青ねぎ（主にイギリス英語）', 'spring onion'],
+  ['西洋ねぎ', 'leek'],
+  ['にら', 'garlic chives'],
+  ['ルッコラ（米語）', 'arugula'],
+  ['ルッコラ（主にイギリス英語）', 'rocket'],
 ];
 
-// Genre 6: 果物 (37 words)
+// Genre 6: 果物
 const GENRE_6_DATA: [string, string][] = [
   ['りんご', 'apple'],
   ['みかん', 'mandarin orange'],
@@ -236,9 +262,9 @@ const GENRE_6_DATA: [string, string][] = [
   ['ブラックベリー', 'blackberry'],
   ['さくらんぼ', 'cherry'],
   ['桃', 'peach'],
-  ['梨', 'pear'],
+  ['和梨', 'Asian pear'],
   ['柿', 'persimmon'],
-  ['梅', 'plum'],
+  ['梅', 'Japanese plum'],
   ['あんず', 'apricot'],
   ['すもも', 'plum'],
   ['キウイ', 'kiwi'],
@@ -257,9 +283,12 @@ const GENRE_6_DATA: [string, string][] = [
   ['栗', 'chestnut'],
   ['干しぶどう', 'raisin'],
   ['ドライフルーツ', 'dried fruit'],
+  ['洋梨', 'pear'],
+  ['プルーン（生の果実）', 'prune plum'],
+  ['プルーン（乾燥した果実）', 'prune'],
 ];
 
-// Genre 7: 香辛料・調味料 (39 words)
+// Genre 7: 香辛料・調味料
 const GENRE_7_DATA: [string, string][] = [
   ['塩', 'salt'],
   ['こしょう', 'pepper'],
@@ -269,7 +298,7 @@ const GENRE_7_DATA: [string, string][] = [
   ['酢', 'vinegar'],
   ['みりん', 'mirin'],
   ['料理酒', 'cooking sake'],
-  ['だし', 'soup stock'],
+  ['だし・煮出し汁', 'stock'],
   ['めんつゆ', 'noodle soup base'],
   ['ポン酢', 'ponzu sauce'],
   ['ソース', 'sauce'],
@@ -300,11 +329,15 @@ const GENRE_7_DATA: [string, string][] = [
   ['パクチー', 'cilantro'],
   ['ごま', 'sesame seeds'],
   ['はちみつ', 'honey'],
+  ['パクチー（主にイギリス英語）', 'coriander'],
+  ['こしょうの実', 'peppercorn'],
+  ['唐辛子ソース', 'hot sauce'],
+  ['洋風のだし・ブイヨン', 'bouillon'],
 ];
 
-// Genre 8: 料理・食品 (50 words)
+// Genre 8: 料理・食品
 const GENRE_8_DATA: [string, string][] = [
-  ['ご飯', 'rice'],
+  ['ご飯・炊いた米', 'cooked rice'],
   ['おにぎり', 'rice ball'],
   ['みそ汁', 'miso soup'],
   ['漬物', 'pickles'],
@@ -341,7 +374,7 @@ const GENRE_8_DATA: [string, string][] = [
   ['目玉焼き', 'fried egg'],
   ['ゆで卵', 'boiled egg'],
   ['パン', 'bread'],
-  ['食パン', 'sandwich bread'],
+  ['食パン', 'sliced bread'],
   ['シリアル', 'cereal'],
   ['ヨーグルト', 'yogurt'],
   ['チーズ', 'cheese'],
@@ -350,13 +383,17 @@ const GENRE_8_DATA: [string, string][] = [
   ['クッキー', 'cookie'],
   ['せんべい', 'rice cracker'],
   ['和菓子', 'Japanese sweets'],
-  ['弁当', 'boxed lunch'],
+  ['弁当', 'packed lunch'],
   ['おかず', 'side dish'],
   ['主食', 'staple food'],
   ['デザート', 'dessert'],
+  ['餃子（料理名として）', 'gyoza'],
+  ['弁当（日本式のもの）', 'bento'],
+  ['白い食パン', 'white bread'],
+  ['ご飯もの・米料理', 'rice dish'],
 ];
 
-// Genre 9: 飲み物 (29 words)
+// Genre 9: 飲み物
 const GENRE_9_DATA: [string, string][] = [
   ['水', 'water'],
   ['お湯', 'hot water'],
@@ -370,7 +407,7 @@ const GENRE_9_DATA: [string, string][] = [
   ['コーヒー', 'coffee'],
   ['カフェラテ', 'caffè latte'],
   ['エスプレッソ', 'espresso'],
-  ['ココア', 'hot chocolate'],
+  ['ココア（飲み物）', 'hot cocoa'],
   ['牛乳', 'milk'],
   ['豆乳', 'soy milk'],
   ['ジュース', 'juice'],
@@ -387,13 +424,20 @@ const GENRE_9_DATA: [string, string][] = [
   ['ウイスキー', 'whiskey'],
   ['カクテル', 'cocktail'],
   ['ノンアルコール飲料', 'non-alcoholic drink'],
+  ['炭酸飲料（米・口語的）', 'soda'],
+  ['炭酸飲料（主に英）', 'fizzy drink'],
+  ['水道水', 'tap water'],
+  ['炭酸なしの水', 'still water'],
+  ['常温の水', 'room-temperature water'],
+  ['アイスティー', 'iced tea'],
+  ['ウイスキー（主に英式のつづり）', 'whisky'],
 ];
 
-// Genre 10: 食器 (29 words)
+// Genre 10: 食器
 const GENRE_10_DATA: [string, string][] = [
   ['皿', 'plate'],
   ['小皿', 'small plate'],
-  ['深皿', 'deep plate'],
+  ['深皿', 'shallow bowl'],
   ['ボウル', 'bowl'],
   ['茶碗', 'rice bowl'],
   ['汁椀', 'soup bowl'],
@@ -419,7 +463,10 @@ const GENRE_10_DATA: [string, string][] = [
   ['水差し', 'pitcher'],
   ['カトラリー', 'cutlery'],
   ['食器一式', 'dinnerware'],
-  ['保存容器', 'food container'],
+  ['保存容器', 'food storage container'],
+  ['受け皿', 'saucer'],
+  ['紙コップ', 'paper cup'],
+  ['使い捨てカトラリー', 'disposable cutlery'],
 ];
 
 export const WORDS_PART_1: WordItem[] = [
