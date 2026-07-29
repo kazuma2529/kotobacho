@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Genre, MainTab, UserProfile, UserWordState, WordStatus } from './types';
 import {
   subscribeToAuthChanges,
@@ -18,13 +18,26 @@ export default function App() {
 
   const [activeTab, setActiveTab] = useState<MainTab>('learn');
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const learnScrollPositionRef = useRef(0);
+  const shouldRestoreLearnScrollRef = useRef(false);
 
   // User word statuses state
   const [userWordState, setUserWordState] = useState<UserWordState>({});
 
-  // Scroll to top on navigation/genre selection
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  // Restore the genre list to where the user was before opening a genre.
+  useLayoutEffect(() => {
+    if (
+      activeTab === 'learn' &&
+      selectedGenre === null &&
+      shouldRestoreLearnScrollRef.current
+    ) {
+      shouldRestoreLearnScrollRef.current = false;
+      window.scrollTo({
+        top: learnScrollPositionRef.current,
+        left: 0,
+        behavior: 'auto',
+      });
+    }
   }, [selectedGenre, activeTab]);
 
   // Listen to Firebase Auth state
@@ -80,8 +93,21 @@ export default function App() {
   const weakCount = Object.values(userWordState).filter((s) => s === 'weak').length;
 
   const handleSelectTab = (tab: MainTab) => {
+    shouldRestoreLearnScrollRef.current = false;
     setActiveTab(tab);
     // Reset selected genre screen when changing tabs
+    setSelectedGenre(null);
+    window.scrollTo(0, 0);
+  };
+
+  const handleSelectGenre = (genre: Genre) => {
+    learnScrollPositionRef.current = window.scrollY;
+    shouldRestoreLearnScrollRef.current = false;
+    setSelectedGenre(genre);
+  };
+
+  const handleBackToGenreList = () => {
+    shouldRestoreLearnScrollRef.current = true;
     setSelectedGenre(null);
   };
 
@@ -101,14 +127,14 @@ export default function App() {
           /* Genre Word List Screen */
           <GenreWordListScreen
             genre={selectedGenre}
-            onBack={() => setSelectedGenre(null)}
+            onBack={handleBackToGenreList}
             userWordState={userWordState}
             onUpdateWordStatus={handleUpdateWordStatus}
           />
         ) : activeTab === 'learn' ? (
           /* Tab 1: 学ぶ (Learn - 40 Genres) */
           <LearnTab
-            onSelectGenre={(genre) => setSelectedGenre(genre)}
+            onSelectGenre={handleSelectGenre}
             userWordState={userWordState}
             onUpdateWordStatus={handleUpdateWordStatus}
           />
@@ -117,7 +143,7 @@ export default function App() {
           <ReviewTab
             userWordState={userWordState}
             onUpdateWordStatus={handleUpdateWordStatus}
-            onNavigateToLearnTab={() => setActiveTab('learn')}
+            onNavigateToLearnTab={() => handleSelectTab('learn')}
           />
         )}
       </main>

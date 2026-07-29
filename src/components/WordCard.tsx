@@ -20,7 +20,8 @@ export const WordCard: React.FC<WordCardProps> = ({
 }) => {
   const [showJapaneseLocal, setShowJapaneseLocal] = useState(false);
   const [isSwipedOpen, setIsSwipedOpen] = useState(false);
-  const touchStartX = useRef<number | null>(null);
+  const touchStartPosition = useRef<{ x: number; y: number } | null>(null);
+  const isVerticalGesture = useRef(false);
 
   const isJapaneseVisible = showJapaneseAll || showJapaneseLocal;
 
@@ -37,21 +38,51 @@ export const WordCard: React.FC<WordCardProps> = ({
 
   // Touch Swipe Handling
   const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
+    const touch = e.touches[0];
+    touchStartPosition.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+    };
+    isVerticalGesture.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartPosition.current === null) return;
+
+    const touch = e.touches[0];
+    const diffX = touchStartPosition.current.x - touch.clientX;
+    const diffY = touchStartPosition.current.y - touch.clientY;
+
+    // Once the movement is clearly vertical, never treat this gesture as a swipe.
+    if (Math.abs(diffY) > 10 && Math.abs(diffY) > Math.abs(diffX)) {
+      isVerticalGesture.current = true;
+    }
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diffX = touchStartX.current - touchEndX;
+    if (touchStartPosition.current === null) return;
 
-    // Swipe left threshold (reveal action buttons)
-    if (diffX > 40) {
+    const touch = e.changedTouches[0];
+    const diffX = touchStartPosition.current.x - touch.clientX;
+    const diffY = touchStartPosition.current.y - touch.clientY;
+    const isHorizontalSwipe =
+      !isVerticalGesture.current &&
+      Math.abs(diffX) > 48 &&
+      Math.abs(diffX) > Math.abs(diffY) * 1.25;
+
+    if (isHorizontalSwipe && diffX > 0) {
       setIsSwipedOpen(true);
-    } else if (diffX < -40) {
+    } else if (isHorizontalSwipe && diffX < 0) {
       setIsSwipedOpen(false);
     }
-    touchStartX.current = null;
+
+    touchStartPosition.current = null;
+    isVerticalGesture.current = false;
+  };
+
+  const handleTouchCancel = () => {
+    touchStartPosition.current = null;
+    isVerticalGesture.current = false;
   };
 
   return (
@@ -59,8 +90,11 @@ export const WordCard: React.FC<WordCardProps> = ({
       {/* Container wrapper for slide effect */}
       <div
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchCancel}
         onClick={handleToggleLocalJa}
+        style={{ touchAction: 'pan-y' }}
         className={`p-3.5 sm:p-4 flex items-center justify-between gap-3 cursor-pointer select-none transition-transform duration-200 bg-white ${
           isSwipedOpen ? '-translate-x-32 sm:-translate-x-36' : 'translate-x-0'
         }`}
