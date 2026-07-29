@@ -57,6 +57,7 @@ const RAW_GENRES: GenreDefinition[] = [
   { id: 44, name: '形容詞から作られる名詞', titleJa: '形容詞から作られる名詞', titleEn: 'Adjective–noun word families', description: '形容詞から派生する抽象名詞・性質を表す名詞', icon: '🔤' },
   { id: 45, name: 'エロ用語', titleJa: 'エロ用語', titleEn: 'Erotic & Sexual Vocabulary', description: '性に関する一般語・医学語・俗語・表現', icon: '💋' },
   { id: 46, name: '宗教', titleJa: '宗教', titleEn: 'Religion & Faith', description: '宗教・信仰・儀式・宗教文化に関する表現', icon: '🛐' },
+  { id: 47, name: '株式投資・資産運用', titleJa: '株式投資・資産運用', titleEn: 'Stock Investing & Wealth Management', description: '株式・金融商品・市場・資産形成に関する表現', icon: '📈' },
 ];
 export const GENRES: Genre[] = RAW_GENRES.map((g) => ({
   ...g,

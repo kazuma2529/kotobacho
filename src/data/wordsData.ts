@@ -5,6 +5,7 @@ import { WORDS_PART_3 } from './wordsPart3';
 import { WORDS_PART_4 } from './wordsPart4';
 import { WORDS_PART_5 } from './wordsPart5';
 import { WORDS_PART_6 } from './wordsPart6';
+import { WORDS_PART_7 } from './wordsPart7';
 
 export const ALL_WORDS: WordItem[] = [
   ...WORDS_PART_1,
@@ -13,6 +14,7 @@ export const ALL_WORDS: WordItem[] = [
   ...WORDS_PART_4,
   ...WORDS_PART_5,
   ...WORDS_PART_6,
+  ...WORDS_PART_7,
 ];
 
 export function getWordsByGenre(genreId: number): WordItem[] {
